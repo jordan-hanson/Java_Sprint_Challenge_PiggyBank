@@ -27,7 +27,7 @@ INSERT INTO coins (coinid, name, nameplural, value, quantity)
 /*
 We must tell hibernate the ids that have already been used.
 The number must be larger than the last used id.
-15 > 7 so we are good!
+15 > 7 so we are good! Update
  */
 
 alter sequence hibernate_sequence restart with 15;
