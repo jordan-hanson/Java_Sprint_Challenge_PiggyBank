@@ -19,11 +19,39 @@ public class CoinsController {
 
     //http://localhost:2019/coins/total
 
+//    @GetMapping(value = "/countries/population/total", produces = "application/json")
+//    public ResponseEntity<?> listPopulationTotal(){
+//        List<Country> totalList = new ArrayList<>();
+//        countriesRepository.findAll().iterator().forEachRemaining(totalList::add);
+//
+//        int total = 0;
+//        for (Country c: totalList){
+//            total += c.getPopulation();
+//        }
+//        System.out.println("The Total population is: " + total);
+//        return new ResponseEntity<>(total, HttpStatus.OK);
+
     @GetMapping(value = "/coins/total", produces = "application/json")
-    public ResponseEntity<?> listCointTotal(){
+    public ResponseEntity<?> listCoinTotal(){
         List<Coin> coinList = new ArrayList<>();
         coinsRepository.findAll().iterator().forEachRemaining(coinList::add);
-        return new ResponseEntity<>(coinList, HttpStatus.OK);
+
+        double priceTotal = 0.0;
+        for (Coin c: coinList){
+            priceTotal += (c.getValue() * c.getQuantity());
+        }
+
+        for(Coin c: coinList){
+            if(c.getQuantity() > 1){
+                System.out.println(c.getQuantity() + " " + c.getNameplural());
+            } else {
+                System.out.println(c.getQuantity() + " " + c.getName());
+            }
+        }
+
+        System.out.println("The piggy bank holds " + priceTotal);
+
+        return new ResponseEntity<>(priceTotal, HttpStatus.OK);
     }
 
 }
