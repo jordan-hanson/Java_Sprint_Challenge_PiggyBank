@@ -18,18 +18,7 @@ public class CoinsController {
     private CoinsRepository coinsRepository;
 
     //http://localhost:2019/coins/total
-
-//    @GetMapping(value = "/countries/population/total", produces = "application/json")
-//    public ResponseEntity<?> listPopulationTotal(){
-//        List<Country> totalList = new ArrayList<>();
-//        countriesRepository.findAll().iterator().forEachRemaining(totalList::add);
-//
-//        int total = 0;
-//        for (Country c: totalList){
-//            total += c.getPopulation();
-//        }
-//        System.out.println("The Total population is: " + total);
-//        return new ResponseEntity<>(total, HttpStatus.OK);
+    
 
     @GetMapping(value = "/coins/total", produces = "application/json")
     public ResponseEntity<?> listCoinTotal(){
