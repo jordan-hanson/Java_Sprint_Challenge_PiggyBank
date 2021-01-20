@@ -18,9 +18,9 @@ public class CoinsController {
     private CoinsRepository coinsRepository;
 
     //http://localhost:2019/coins/total
-    
 
-    @GetMapping(value = "/coins/total", produces = "application/json")
+
+    @GetMapping(value = "/total", produces = "application/json")
     public ResponseEntity<?> listCoinTotal(){
         List<Coin> coinList = new ArrayList<>();
         coinsRepository.findAll().iterator().forEachRemaining(coinList::add);
